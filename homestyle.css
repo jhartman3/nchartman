@@ -1,0 +1,80 @@
+body{
+	background-color: #14288C;
+	color: white;
+	font-family: "Courier";
+}
+h1{
+	padding-left: 20px;
+}
+div{
+	margin-left: 0px;
+}
+ul{
+	position: absolute; left: -10px; top: 59px;
+	display: inline-table;
+}
+li.tabs{
+	font-size: 20px;
+	font-weight: bold;
+	list-style: none;
+	float: left;
+	position: relative;
+	background-color: #6F7ECA;
+	border: 2px #4D5BA3 solid;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding-left: 10px; padding-right: 10px;
+}
+li.tabs:hover{
+	background-color: #A8B6FF;
+	border-color: #7F8ED8;
+	border-bottom-color: #4D5BA3;
+}
+li.uptab{
+	font-size: 20px;
+	font-weight: bold;
+	list-style: none;
+	float: left;
+	position: relative;
+	background-color: #6F7ECA;
+	border: 2px #4D5BA3 solid;
+	border-bottom-color: #6F7ECA;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding-left: 10px; padding-right: 10px;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+a.linked{
+	text-decoration: underline;
+	color: yellow;
+}
+#home{
+	background-color: #6F7ECA;
+	border: 2px #4D5BA3 solid;
+	padding: 10px;
+	position: relative; top: 20px;
+}
+#assign{
+	background-color: #6F7ECA;
+	border: 2px #4D5BA3 solid;
+	padding: 10px;
+	position: relative; top: 20px;
+	display: none;
+}
+#schedule{
+	background-color: #6F7ECA;
+	border: 2px #4D5BA3 solid;
+	padding: 10px;
+	position: relative; top: 20px;
+	display: none;
+}
+#groups{
+	background-color: #6F7ECA;
+	border: 2px #4D5BA3 solid;
+	padding: 10px;
+	position: relative; top: 20px;
+	display: none;
+}

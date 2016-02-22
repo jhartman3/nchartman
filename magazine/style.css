@@ -1,0 +1,66 @@
+body{
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    font-family: "Segoe UI";
+    font-size: 9px;
+    margin: 0px;
+}
+#expmore{
+    color: #37659C;
+    font-family: "Verdana";
+    font-weight: bold;
+    margin-left: 396px;
+    margin-top: 47px;
+}
+#img1{
+    margin-left: 396px;
+}
+#tecno{
+    color: #37659C;
+    font-size: 22px;
+    margin-top: 16px;
+    margin-left: 40px;
+}
+span.bold{
+    font-weight: bold;
+}
+div.caption{
+    color: #9A9B9B;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 40px;
+}
+#fullexp{
+    margin-left: 40px;
+    margin-top: 6px;
+}
+#list{
+    margin-left: 40px;
+}
+#skyblue{
+    color: #65C0E4;
+}
+#yellowbox{
+    background-color: #FCBE33;
+    width: 513px;
+    height: 79px;
+    margin-top:391px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-left: 37px;
+    padding-top: 6px;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: bold;
+}
+#secondline{
+    font-size: 18px;
+}
+#redgb{
+    color: #E42C2C;
+}
+#mtnimage{
+    float: right;
+    margin-right: 29px;
+}
