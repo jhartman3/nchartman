@@ -1,0 +1,8 @@
+body{
+	background-color: aliceblue;
+}
+p, div{
+	background-color: lightblue;
+	border: 2px solid #0099FF;
+	padding: 6px;
+}
