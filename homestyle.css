@@ -2,6 +2,8 @@ body{
 	background-color: #14288C;
 	color: white;
 	font-family: "Courier";
+	background-image: url("arrowback.png");
+	background-size: 100% 300%;
 }
 h1{
 	padding-left: 20px;
@@ -50,6 +52,14 @@ a{
 a.linked{
 	text-decoration: underline;
 	color: yellow;
+}
+a.linked:hover{
+	text-decoration: underline;
+	color: khaki;
+}
+a.linked:active{
+	text-decoration: underline;
+	color: white;
 }
 #home{
 	background-color: #6F7ECA;
