@@ -55,7 +55,7 @@ a.linked{
 }
 a.linked:hover{
 	text-decoration: underline;
-	color: khaki;
+	color: #FFFFAA;
 }
 a.linked:active{
 	text-decoration: underline;
