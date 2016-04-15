@@ -4,26 +4,26 @@ function onLoad()
   //$(".newValue").hide();
 }
 
-function ajaxInsertGame(method, Franchise, Title, Genre)
+function ajaxInsertGame(method, Title, Genre, Franchise)
 {
   return $.ajax({
     url: 'ShadyAPI.php',
     type: 'POST',
     data: {method: method,
-      Franchise: Franchise,
       Title: Title,
-      Genre: Genre
+      Genre: Genre,
+	  Franchise: Franchise
     }
   });
 }
 
 function insertGame()
 {
-  var Franchise, Title, Genre;
-  Franchise = JSON.stringify($('#Franchise option:selected').val());
+  var Title, Genre, Franchise;
   Title = JSON.stringify($('#Title').val());
   Genre = JSON.stringify($('#Genre').val());
-  ajax = ajaxInsertGame("insertGame", Franchise, Title, Genre);
+  Franchise = JSON.stringify($('#Franchise option:selected').val());
+  ajax = ajaxInsertGame("insertGame", Title, Genre, Franchise);
   ajax.done(insertGameCallback);
   ajax.fail(function () {
     alert("Failure");
@@ -124,16 +124,16 @@ function getGamesCallback(response_in)
 
 function updateGame()
 {
-  var Franchise, Title, Genre, 
-      newFranchise, newTitle, newGenre;
-  Franchise = JSON.stringify($('#Franchise option:selected').val());
+  var Title, Genre, Franchise,
+      newTitle, newGenre, newFranchise;
   Title = JSON.stringify($('#Title').val());
   Genre = JSON.stringify($('#Genre').val());
-  newFranchise = JSON.stringify($('#newFranchise option:selected').val());
+  Franchise = JSON.stringify($('#Franchise option:selected').val());
   newTitle = JSON.stringify($('#newTitle').val());
   newGenre = JSON.stringify($('#newGenre').val());
+  newFranchise = JSON.stringify($('#newFranchise option:selected').val());
   
-  ajax = ajaxupdateGames("updateGame", newFranchise, newTitle, newGenre);
+  ajax = ajaxupdateGames("updateGame", newTitle, newGenre, newFranchise);
   ajax.done(updateGameCallback);
   ajax.fail(function () {
     alert("Failure");

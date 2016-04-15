@@ -11,13 +11,13 @@ function getDatabases() {
         $server = json_decode(sanitize($_POST['server']));
     }
     if (isset($_POST['userName'])) {
-        $userTitle = json_decode(sanitize($_POST['userName']));
+        $username = json_decode(sanitize($_POST['userName']));
     }
     if (isset($_POST['password'])) {
         $password = json_decode(sanitize($_POST['password']));
     }
     $databaseNames = array();
-    $dbConn = mysqli_connect($server, $userTitle, $password);
+    $dbConn = mysqli_connect($server, $username, $password);
     $query = "SHOW DATABASES";
     $result = $dbConn->query($query);
     if ($result) {
@@ -26,7 +26,7 @@ function getDatabases() {
         }
     }
     $return = new stdClass;
-    $return->credentials = $server + "  " + $userTitle + "   " + $password;
+    $return->credentials = $server + "  " + $username + "   " + $password;
     $return->success = true;
     $return->errorMessage = "";
     $return->data['database_Names'] = $databaseNames;
@@ -35,20 +35,20 @@ function getDatabases() {
 }
 function insertGame() {
     // retrieve and sanitize posted values.
-    if (isset($_POST['Franchise'])) {
-        $Franchise = json_decode(sanitize($_POST['Franchise']));
-    }
     if (isset($_POST['Title'])) {
         $Title = json_decode(sanitize($_POST['Title']));
     }
     if (isset($_POST['Genre'])) {
         $Genre = json_decode(sanitize($_POST['Genre']));
     }
+	if (isset($_POST['Franchise'])) {
+        $Franchise = json_decode(sanitize($_POST['Franchise']));
+    }
     $dbConn = mysqli_connect(demoServer(), demoUsername(), demoPassword(), demoDB());
     if ($dbConn->connect_error) {
         die("Connection failed: " . $dbConn->connect_error);
     }
-    $query = "INSERT INTO 'ncJacobH'.'games' ( 'Title', 'Genre', 'Franchise' ) " .
+    $query = "INSERT INTO games ( Title, Genre, Franchise ) " .
             "VALUES ( " .
             "'" . $Title . "', " .
             "'" . $Genre . "', " .
@@ -70,14 +70,14 @@ function updateGame() {
     if (isset($_POST['ID'])) {
       $ID = json_decode(sanitize($_POST['ID']));
     }
-    if (isset($_POST['newFranchise'])) {
-        $newFranchise = json_decode(sanitize($_POST['newFranchise']));
-    }
     if (isset($_POST['newTitle'])) {
         $newTitle = json_decode(sanitize($_POST['newTitle']));
     }
     if (isset($_POST['newGenre'])) {
         $newGenre = json_decode(sanitize($_POST['newGenre']));
+    }
+	if (isset($_POST['newFranchise'])) {
+        $newFranchise = json_decode(sanitize($_POST['newFranchise']));
     }
     $dbConn = mysqli_connect(demoServer(), demoUsername(), demoPassword(), demoDB());
     if ($dbConn->connect_error) {
