@@ -1,5 +1,6 @@
 function onLoad()
 {
+  getFranchises();
   getGames();
   //$(".newValue").hide();
 }
@@ -98,8 +99,42 @@ function getGamesCallback(response_in)
     $("#results").html("getGames failed");
   } else
   {
-    $('#Franchise').find('option').remove();
     showGames($Games);
+          }
+}
+
+function getFranchises()
+{
+  var Password = JSON.stringify($('#Password').val());
+  ajax = ajaxgetFranchises("getFranchises", Password);
+  ajax.done(getFranchisesCallback);
+  ajax.fail(function () {
+	  alert("Please enter the correct password.");
+  });
+}
+
+function ajaxgetFranchises(method, Password)
+{
+
+  return $.ajax({
+    url: 'ShadyAPI.php',
+    type: 'POST',
+    data: {method: method,
+		Password: Password
+    }
+  });
+}
+
+function getFranchisesCallback(response_in)
+{
+  response = JSON.parse(response_in);
+  $Games = response["Games"];
+  if (!response['success'])
+  {
+    $("#results").html("getGames failed");
+  } else
+  {
+    $('#Franchise').find('option').remove();
     $.each($Games,
             function (key, Game)
                     /* 
@@ -115,8 +150,8 @@ function getGamesCallback(response_in)
                       $("#Franchise")
                               .append($('<option>',
                                       {
-                                        value: Game[3].toString(),
-                                        text: Game[3].toString()
+                                        value: Game[1].toString(),
+                                        text: Game[1].toString()
                                       }));
 
                     }

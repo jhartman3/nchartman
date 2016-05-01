@@ -161,3 +161,39 @@ function getGames() {
             demoServer();
     return json_encode($return);
 }
+
+function getFranchises() {
+	if (isset($_POST['Password'])) {
+        $Password = json_decode(sanitize($_POST['Password']));
+    }
+    $dbConn = mysqli_connect(demoServer(), demoUsername(), $Password, demoDB());
+    $query = "SELECT * FROM franchises";
+    $result = $dbConn->query($query);
+    if ($dbConn->connect_error) {
+        $return->connect_error = "Connection failed: " . $dbConn->connect_error;
+        $return->success = false;
+        return json_encode($return);
+    }
+    $Games = array();
+    if ($result) {
+        while ($row = $result->fetch_array()) {
+            $allColumns = array();
+            for ($i = 0; $i < 4; $i++) {
+                array_push($allColumns, $row[$i]);
+            }
+            array_push($Games, $allColumns);
+        }
+    }
+    
+    $return = new StdClass();
+    $return->success = true;
+    $return->Games = $Games;
+    $return->querystring = $query;
+    $return->credentials = 
+            demoUsername() . 
+            demoPassword() . 
+            demoDB() . 
+            " on " . 
+            demoServer();
+    return json_encode($return);
+}
