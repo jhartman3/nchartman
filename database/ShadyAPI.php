@@ -44,7 +44,10 @@ function insertGame() {
 	if (isset($_POST['Franchise'])) {
         $Franchise = json_decode(sanitize($_POST['Franchise']));
     }
-    $dbConn = mysqli_connect(demoServer(), demoUsername(), demoPassword(), demoDB());
+	if (isset($_POST['Password'])) {
+        $Password = json_decode(sanitize($_POST['Password']));
+    }
+    $dbConn = mysqli_connect(demoServer(), demoUsername(), $Password, demoDB());
     if ($dbConn->connect_error) {
         die("Connection failed: " . $dbConn->connect_error);
     }
@@ -79,7 +82,10 @@ function updateGame() {
 	if (isset($_POST['newFranchise'])) {
         $newFranchise = json_decode(sanitize($_POST['newFranchise']));
     }
-    $dbConn = mysqli_connect(demoServer(), demoUsername(), demoPassword(), demoDB());
+	if (isset($_POST['Password'])) {
+        $Password = json_decode(sanitize($_POST['Password']));
+    }
+    $dbConn = mysqli_connect(demoServer(), demoUsername(), $Password, demoDB());
     if ($dbConn->connect_error) {
         die("Connection failed: " . $dbConn->connect_error);
     }
@@ -121,7 +127,10 @@ function updateGame() {
  * postconditions
  */
 function getGames() {
-    $dbConn = mysqli_connect(demoServer(), demoUsername(), demoPassword(), demoDB());
+	if (isset($_POST['Password'])) {
+        $Password = json_decode(sanitize($_POST['Password']));
+    }
+    $dbConn = mysqli_connect(demoServer(), demoUsername(), $Password, demoDB());
     $query = "SELECT * FROM games";
     $result = $dbConn->query($query);
     if ($dbConn->connect_error) {

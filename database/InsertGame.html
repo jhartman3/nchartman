@@ -11,12 +11,15 @@ and open the template in the editor.
         <meta name="viewport" content="Genre=device-Genre, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="JS/AjaxGame.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="databases.css">
     </head>
-    <body onload="onLoad()">
+    <body onLoad="">
         <div>
-            Franchise: <select id="Franchise"> </select> <br>
-            Title: <input id="Title" type=text value="Title"> <br>
-            Genre: <input id="Genre" type=text value="Genre"> <br>
+			Password: <input id="Password" type=text value="Password"> 
+			<button type="button" onclick="onLoad()">Connect</button><br><br>
+            Franchise: <select id="Franchise"> </select> <br><br>
+            Title: <input id="Title" type=text value="Title"> <br><br>
+            Genre: <input id="Genre" type=text value="Genre"> <br><br>
            <button type="button" onclick="insertGame()">Insert</button>
            
            <p id="results">

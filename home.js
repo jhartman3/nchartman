@@ -1,4 +1,4 @@
-var nameList = ["home", "assign", "schedule", "groups"];
+var nameList = ["home", "assignments", "schedule", "groups"];
 
 function showTab(num){
 	for(var i=1;i<=nameList.length;i++){
@@ -7,4 +7,16 @@ function showTab(num){
 	}
 	document.getElementById("tab" + num).className = "uptab";
 	document.getElementById(nameList[num - 1]).style.display = "block";
+}
+
+function urlTab(){
+	var locale = location.href;
+	var currentTab = locale.substr(locale.indexOf("#") + 1);
+	if (nameList.indexOf(currentTab) > -1){
+		var IDnum = nameList.indexOf(currentTab);
+		showTab(IDnum + 1);
+	}
+	else{
+		showTab(1);
+	}
 }

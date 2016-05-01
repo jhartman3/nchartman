@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="homestyle.css">
 	<script src="home.js"></script>
 </head>
-<body>
+<body onload="urlTab()">
 	<h1>nchartman.onucs.org</h1>
 	<div id="home">
 		Welcome to Jacob Hartman's ONU homepage for net-centric computing!</br></br>
@@ -14,23 +14,23 @@
 		The website will be a work in progress for some time, so browse to your heart's 
 		content!</br></br>
 		The code for this site can be found on github here:</br>
-		<a href="https://github.com/jhartman3" target="_blank" class="linked">jhartman3</a>
+		<a href="https://github.com/jhartman3" class="linked">jhartman3</a>
 	</div>
-	<div id="assign">
+	<div id="assignments">
 		On this page, you will find links to the assignments completed for the course. More will be 
 		added as the course progresses.</br></br>
-		<a href="hello.html" target="_blank" class="linked">Hello, World!</a> - A simple
+		<a href="hello.html" class="linked">Hello, World!</a> - A simple
 		Hello World implementation to demonstrate basic HTML knowledge.</br>
-		<a href="magazine/MagazineAd.html" target="_blank" class="linked">Magazine Ad</a> - A test 
+		<a href="magazine/MagazineAd.html" class="linked">Magazine Ad</a> - A test 
 		to determine student ability to recreate a page in HTML, with a magazine advertisement as 
 		the source page.</br>
-		<a href="csscommenting.pdf" target="_blank" class="linked">CSS Commenting</a> - A given
+		<a href="csscommenting.pdf" class="linked">CSS Commenting</a> - A given
 		CSS document commented based on knowledge of CSS.</br>
-		<a href="effects.html" target="_blank" class="linked">jQuery Experiment</a> - A page used
+		<a href="effects.html" class="linked">jQuery Experiment</a> - A page used
 		 to demonstrate initial knowledge of jQuery.</br>
-		 <a href="databases.pdf" target="_blank" class="linked">Database Tutorial</a> - A document detailing the 
+		 <a href="databases.pdf" class="linked">Database Tutorial</a> - A document detailing the 
 		 creation of tables and select statements in a database.</br>
-		 <a href="database/InsertGame.html" target="_blank" class="linked">Database Inserter</a> - A page that can
+		 <a href="database/InsertGame.html" class="linked">Database Inserter</a> - A page that can
 		 insert game entries into a database.
 	</div>
 	<div id="schedule">
@@ -71,10 +71,10 @@
 	</div>
 	<div>
 		<ul id="list">
-			<li class="uptab" id="tab1" onclick="showTab(1)"><a href="#home">Home</a></li>
-			<li class="tabs" id="tab2" onclick="showTab(2)"><a href="#assignments">Assignments</a></li>
-			<li class="tabs" id="tab3" onclick="showTab(3)"><a href="#schedule">Schedule</a></li>
-			<li class="tabs" id="tab4" onclick="showTab(4)"><a href="#groups">Affiliations</a></li>
+			<li class="uptab" id="tab1"><a href="#home" onclick="showTab(1)">Home</a></li>
+			<li class="tabs" id="tab2"><a href="#assignments" onclick="showTab(2)">Assignments</a></li>
+			<li class="tabs" id="tab3"><a href="#schedule" onclick="showTab(3)">Schedule</a></li>
+			<li class="tabs" id="tab4"><a href="#groups" onclick="showTab(4)">Affiliations</a></li>
 		</ul>
 	</div>
 </body>
