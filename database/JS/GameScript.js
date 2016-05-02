@@ -8,7 +8,7 @@ function onLoad()
 function ajaxInsertGame(method, Title, Genre, Franchise, Password)
 {
   return $.ajax({
-    url: 'ShadyAPI.php',
+    url: 'GameOperations.php',
     type: 'POST',
     data: {method: method,
       Title: Title,
@@ -82,7 +82,7 @@ function ajaxgetGames(method, Password)
 {
 
   return $.ajax({
-    url: 'ShadyAPI.php',
+    url: 'GameOperations.php',
     type: 'POST',
     data: {method: method,
 		Password: Password
@@ -117,7 +117,7 @@ function ajaxgetFranchises(method, Password)
 {
 
   return $.ajax({
-    url: 'ShadyAPI.php',
+    url: 'GameOperations.php',
     type: 'POST',
     data: {method: method,
 		Password: Password
@@ -158,50 +158,4 @@ function getFranchisesCallback(response_in)
             )
                     ;
           }
-}
-
-
-function updateGame()
-{
-  var Title, Genre, Franchise,
-      newTitle, newGenre, newFranchise, Password;
-  Title = JSON.stringify($('#Title').val());
-  Genre = JSON.stringify($('#Genre').val());
-  Franchise = JSON.stringify($('#Franchise option:selected').val());
-  newTitle = JSON.stringify($('#newTitle').val());
-  newGenre = JSON.stringify($('#newGenre').val());
-  newFranchise = JSON.stringify($('#newFranchise option:selected').val());
-  Password = JSON.stringify($('#Password').val());
-  ajax = ajaxupdateGames("updateGame", newTitle, newGenre, newFranchise, Password);
-  ajax.done(updateGameCallback);
-  ajax.fail(function () {
-    alert("Please enter the correct password.");
-  });
-}
-
-function ajaxupdateGame(method, Password)
-{
-
-  return $.ajax({
-    url: 'ShadyAPI.php',
-    type: 'POST',
-    data: {method: method,
-		Password: Password
-    }
-  });
-}
-
-function updateGameCallback(response_in)
-{
-  response = JSON.parse(response_in);
-  $Games = response["Games"];
-  if (!response['success'])
-  {
-    $("#results").html("updateGames failed");
-  } else
-  {
-    $("#results").html(response['querystring']);
-    $Games = getGames();
-    showGames($Games);
-  }
 }

@@ -1,5 +1,5 @@
 <?php
-require("DemoCreds.php");
+require("Credentials.php");
 echo $_POST["method"]();
 function sanitize($str, $quotes = ENT_NOQUOTES) {
     $str = htmlspecialchars($str, $quotes);
@@ -68,46 +68,11 @@ function insertGame() {
     }
     return json_encode($return);
 }
-function updateGame() {
-    // retrieve and sanitize posted values.
-    if (isset($_POST['ID'])) {
-      $ID = json_decode(sanitize($_POST['ID']));
-    }
-    if (isset($_POST['newTitle'])) {
-        $newTitle = json_decode(sanitize($_POST['newTitle']));
-    }
-    if (isset($_POST['newGenre'])) {
-        $newGenre = json_decode(sanitize($_POST['newGenre']));
-    }
-	if (isset($_POST['newFranchise'])) {
-        $newFranchise = json_decode(sanitize($_POST['newFranchise']));
-    }
-	if (isset($_POST['Password'])) {
-        $Password = json_decode(sanitize($_POST['Password']));
-    }
-    $dbConn = mysqli_connect(demoServer(), demoUsername(), $Password, demoDB());
-    if ($dbConn->connect_error) {
-        die("Connection failed: " . $dbConn->connect_error);
-    }
-    $query = "UPDATE games " + 
-             "SET Franchise='" + $newFranchise + "'" + 
-             "SET Title='" + $newTitle + "'" + 
-             "SET Genre='" + $newGenre + "'" +          
-             "WHERE ID=" + $ID;
-    $result = $dbConn->query($query);
-    $return = new stdClass;
-    $return->querystring = $query;
-    if ($result) {
-        $return->success = true;
-    } else {
-        $return->success = false;
-    }
-    return json_encode($return);
-}
+
 /**
  * function getGames()
  * 
- * preconditions: a file of the form given in DemoCreds.php that contains
+ * preconditions: a file of the form given in Credentials.php that contains
  *                the credentials that will be used to access the database.
  *                This is not secure -- just for demo purposes.
  * 
